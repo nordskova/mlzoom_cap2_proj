@@ -11,9 +11,8 @@ app = Flask(__name__)
 # Load the pre-trained model
 model = torch.load('mobnet_model.pth', map_location ='cpu')
 
-def predict_one(model, inputs, device=DEVICE):
+def predict_one(model, inputs):
     with torch.no_grad():
-        inputs = inputs.to(device)
         model.eval()
         logit = model(inputs).cpu()
         probs = torch.nn.functional.softmax(logit, dim=-1).numpy()
