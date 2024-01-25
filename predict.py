@@ -5,6 +5,9 @@ import json
 from PIL import Image
 from io import BytesIO
 import numpy as np
+import requests
+from torchvision import transforms
+import pickle
 
 app = Flask(__name__)
 
@@ -44,7 +47,7 @@ def predict():
     predict_proba = np.max(prob)*100
     predicted_species = label_encoder.classes_[np.argmax(prob)]
     results = "Prediction: {} with confidence {:.0f}%".format(predicted_species,predict_proba)
-    return jsonify({'Uploaded picture: ': url, 'Results:':results})
+    return jsonify({'Uploaded picture: ': img_url, 'Results:':results})
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=9696)

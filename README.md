@@ -56,7 +56,7 @@ The picture we have used here as an example is a fresh photo from the Instagram 
 6. To get a new prediction, go to **test.py** and change the url there with the url of your photo. Then run **test.py** again. 
 
 
-PICTURES HERE
+<img src="demo3.png" alt="logo" width="400"/>
 
 ## Cloud deployment 
 The project was deployed to a local kubernetes cluster with minikube. Here we describe the process step by step. 
