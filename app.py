@@ -1,19 +1,21 @@
 from flask import Flask, request, render_template
+import requests
+from torchvision import transforms
 import torch
 import re
 from PIL import Image
 from io import BytesIO
 import numpy as np
+import pickle
 
 app = Flask(__name__)
 
 # Load the pre-trained model 
 
-model = torch.load('mobnet_model.pth')
+model = torch.load('mobnet_model.pth', map_location ='cpu')
 
-def predict_one(model, inputs, device=DEVICE):
+def predict_one(model, inputs):
     with torch.no_grad():
-        inputs = inputs.to(device)
         model.eval()
         logit = model(inputs).cpu()
         probs = torch.nn.functional.softmax(logit, dim=-1).numpy()
@@ -44,8 +46,7 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    data = request.get_json()
-    img_url = data['img url']
+    img_url = request.form.get("peng")
     img = get_image(img_url)
     label_encoder = pickle.load(open("label_encoder.pkl", 'rb'))
     prob = predict_one(model, img.unsqueeze(0))

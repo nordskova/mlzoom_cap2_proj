@@ -13,6 +13,8 @@ transformers = "*"
 requests = "*"
 gunicorn = "*"
 fastapi = "*"
+pillow = "*"
+torchvision = "*"
 
 [dev-packages]
 awsebcli = "*"
