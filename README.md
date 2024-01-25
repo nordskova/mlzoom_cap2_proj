@@ -5,7 +5,7 @@ This project has been completed as part of the ML Zoomcamp ran by [DataTalks.Clu
 
 You could just use some HTML in your Markdown:
 
-<img src="peng_pic1.png" alt="logo" width="200"/>
+<img src="peng_pic1.png" alt="logo" width="350"/>
 
 In this project we will try to create an ML model that would be able to take a photo of an adult penguin and determine its species. We will only work with **13 particular species**, namely, Emperor penguin, Adelie penguin, Chinstrap penguin, Southern rockhopperpenguin, Northern rockhopperpenguin, Fiordland penguin, Snares penguin, Macaroni penguin, Yellow eyed penguin, African penguin, Humboldt penguin, Magellanic penguin and Galapagos penguin. To determine the best model we use the **F1-score** metric. 
 
@@ -13,12 +13,12 @@ In this project we will try to create an ML model that would be able to take a p
 1. **Data collection.** Since we have not found a suitable existing dataset, we had to create one. This was done by scraping Google Images and manual cleaning. The result is provided as a Kaggle dataset [here](https://www.kaggle.com/datasets/nordskova/penguin-species-photos/). 
 2. **Data augmentation and preprocessing.** Since after scraping we ended up with highly unbalanced classes, we augment each class to have 300 images in total by applying random rotations, flips and crops. Then we split the data into train and validation parts, rescale the images and turn them into tensors suitable for training of Pytorch models. 
 
-3. Next we fine-tune several pre-trained models: Resnet50, MobileNet V2 and Resnet101. **Resnet50** Adding custom classification layers on top, freezing other layers and training for 100 epochs with Cross Entropy as loss function and Adam optimizer with learning rate 0.0001. The resulting F1-score is **0.95**. 
-4. **MobileNet v2**. We try two different variations: training the model as is for 30 epochs, using the same loss function and optimizer as for Resnet50, and adding custom classification layers on top instead of the last layer and training the model for 80 epochs with Negative Log Likelihood loss as loss function. In the first case the F1-score was **0.88**. In the second case it was
+3. Next we fine-tune several pre-trained models: Resnet50, MobileNet V2 and Resnet101. **Resnet50**: Adding custom classification layers on top, freezing other layers and training for 100 epochs with Cross Entropy as loss function and Adam optimizer with learning rate 0.0001. The resulting F1-score is **0.83**. 
+4. **MobileNet v2**. We try two different variations: training the model as is for 30 epochs, using the same loss function and optimizer as for Resnet50, and adding custom classification layers on top instead of the last layer and training the model for 80 epochs with Negative Log Likelihood loss as loss function. In the first case the F1-score was **0.88**. In the second case it was **0.85**. 
 5. **Resnet101**. Adding one fully connected layer, training for 60 epochs with Cross Entropy loss and SGD optimizer with momentum. The resulting F1-score was **0.84**. 
 
 
-The best model (MobileNet V2) was saved (see **mobnet_model.pth** in the directory). 
+The best model (MobileNet V2, first try) was saved (see **mobnet_model.pth** in the directory). 
 
 *All these steps are contained in the notebook* **peng_project_notebook.ipynb**. If your browser does not render the notebook in GitHub, you can download the file and open it locally or use [nbviewer](https://nbviewer.org/). 
 
@@ -40,17 +40,16 @@ You can check it by running ``` pipenv --version```
 
 PICS HERE
 
-Here as an example we use a fresh picture from the Instagram account of Otaru Aquarium (Japan). 
+Here as an example we use a fresh picture from the Instagram account of Otaru Aquarium (Japan), to make sure we did not have it in the dataset. 
 
 ## Running the project with Docker: 
 1.  Clone the repository: 
 ```  git clone https://github.com/nordskova/mlzoom_cap2_proj ``` For the following steps you should be in the corresponding repository. 
 2. Make sure you have Docker installed: ```docker --version``` If you don't, first follow the instuctions [here](https://docs.docker.com/desktop/). Run and Docker daemon if your system doesn't do it automatically. 
-3. Build a Docker image with ```docker build -t sarcasm .``` It will automatically collect all required packages and dependencies from **requirements.txt**. 
-4. Now run it with ```docker run -it -p 9696:9696 sarcasm:latest``` 
-5. In a new tab of the terminal/command line, run ```python3 test.py```. You will get a reply like this:  ```{'Reddit comment: ': 'Life is good!', 'Result:': 'The comment is likely sincere. The confidence is 0.7231289148330688'} ```
-6. To get a new prediction, go to **test.py** and change the following line: 
- ```data = {"text": "Life is good!"}```, replacing "Life is good!" with your Reddit comment. Then run **test.py** again. 
+3. Build a Docker image with ```docker build -t peng .``` It will automatically collect all required packages and dependencies from **requirements.txt**. 
+4. Now run it with ```docker run -it -p 9696:9696 peng:latest``` 
+5. In a new tab of the terminal/command line, run ```python3 test.py```. You will get a reply like this:  ```Prediction: african_penguin with confidence 98%```. 
+6. To get a new prediction, go to **test.py** and change the url there with the url of your photo. Then run **test.py** again. 
 
 
 PICTURES HERE
