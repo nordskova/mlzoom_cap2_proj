@@ -9,7 +9,7 @@ import numpy as np
 app = Flask(__name__)
 
 # Load the pre-trained model
-model = torch.load('mobnet_model.pth')
+model = torch.load('mobnet_model.pth', map_location ='cpu')
 
 def predict_one(model, inputs, device=DEVICE):
     with torch.no_grad():
