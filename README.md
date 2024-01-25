@@ -21,7 +21,8 @@ The best model (MobileNet V2, first try) was saved (see **mobnet_model.pth** in 
 *All these steps are contained in the notebook* **peng_project_notebook.ipynb**. If your browser does not render the notebook in GitHub, you can download the file and open it locally or use [nbviewer](https://nbviewer.org/). 
 
 
-5. **Local deployment.** The model is deployed as a web service using Flask (**app.py**). To make it more user friendly, we employ *render_template* and create a simple html page (provided in the subfolders **"templates** and **static**) with a form to which you can submit your reddit comment directly in your browser. As an alernative, we have another script **predict.py** which gets its data for predictions from **test.py**. The application is containerized via Docker. Below you can see the instuctions on how to build and run the project with or without Docker. 
+6. **Local deployment.** The model is deployed as a web service using Flask (**app.py**). To make it more user friendly, we employ *render_template* and create a simple html page (provided in the subfolders **"templates** and **static**) with a form to which you can submit your reddit comment directly in your browser. As an alernative, we have another script **predict.py** which gets its data for predictions from **test.py**. The application is containerized via Docker. Below you can see the instuctions on how to build and run the project with or without Docker.
+7. **Cloud deployment.** The project was deployed to a local kubernetes cluster with minikube, see below. 
 
 ## How to run the project locally (without Docker): 
 1. Clone the repository: 
