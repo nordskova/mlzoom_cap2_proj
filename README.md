@@ -1,7 +1,11 @@
 # Penguin species classification (Cap project for ML Zoomcamp)
 This project has been completed as part of the ML Zoomcamp ran by [DataTalks.Club](https://datatalks.club). 
 
-![](peng_pic1.png)
+
+
+You could just use some HTML in your Markdown:
+
+<img src="peng_pic11.png" alt="logo" width="200"/>
 
 In this project we will try to create an ML model that would be able to take a photo of an adult penguin and determine its species. We will only work with **13 particular species**, namely, Emperor penguin, Adelie penguin, Chinstrap penguin, Southern rockhopperpenguin, Northern rockhopperpenguin, Fiordland penguin, Snares penguin, Macaroni penguin, Yellow eyed penguin, African penguin, Humboldt penguin, Magellanic penguin and Galapagos penguin. To determine the best model we use the **F1-score** metric. 
 
