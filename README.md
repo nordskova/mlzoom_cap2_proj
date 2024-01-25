@@ -42,7 +42,9 @@ You can check it by running ``` pipenv --version```
 
 
 Here as an example we use a fresh picture from the Instagram account of Otaru Aquarium (Japan), to make sure we did not have it in the dataset. The picture we used: 
-<img src="peng_pic.png" width="350"/>
+
+
+<img src="peng_img.png" width="350"/>
 
 
 ## Running the project with Docker: 
