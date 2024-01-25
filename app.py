@@ -21,7 +21,7 @@ def predict_one(model, inputs, device=DEVICE):
 
 img_size = 224
 
-ef get_image(url):
+def get_image(url):
     response = requests.get(url)
     image = Image.open(BytesIO(response.content))
     image.load()
