@@ -41,7 +41,7 @@ You can check it by running ``` pipenv --version```
 <img src="demo2.png" width="400"/>
 
 
-Here as an example we use a fresh picture from the Instagram account of Otaru Aquarium (Japan), to make sure we did not have it in the dataset. The picture we used: 
+The picture we have used here as an example is a fresh photo from the Instagram account of Otaru Aquarium (Japan). This way we made sure that this picture was not contained in our training dataset. The photo we have used: 
 
 
 <img src="peng_img.jpeg" width="350"/>
