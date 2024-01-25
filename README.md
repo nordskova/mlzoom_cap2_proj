@@ -90,10 +90,10 @@ You might also need to run ```minikube start``` before that.
 
 ```kubectl expose deployment flaskapi-peng-deployment --type=NodePort --port=9696```
 
-8. Run ```minikube service flaskapi-peng-deployment``` to see the information about your service. Copy the URL provided (for me it is ```http://127.0.0.1:63949```): 
+8. Run ```minikube service flaskapi-peng-deployment``` to see the information about your service. Copy the URL provided (for me it is ```http://127.0.0.1:62941```): 
 
 
-9. Go to **test.py** file. Replace ```url = 'http://localhost:9696/predict'``` with ```url = '[URL]/predict'``` (in my case ```url = 'http://127.0.0.1:63949/predict'```). 
+9. Go to **test.py** file. Replace ```url = 'http://localhost:9696/predict'``` with ```url = '[URL]/predict'``` (in my case ```url = 'http://127.0.0.1:62941/predict'```). 
 
 10. In a new tab of your terminal/command line, run ```python3 test.py```. To get a new prediction for your Reddit comment, edit **test.py** accordingly to add your url and run it again. 
 
